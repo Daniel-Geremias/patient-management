@@ -19,9 +19,9 @@ public class BillingServiceGrpcClient {
     // aws.grpc:123123/BillingService/CreatePatientAccount
     public BillingServiceGrpcClient(
             @Value("${billing.service.address:localhost") String serverAddress,
-            @Value("${billing.service.grpc.port:9001}") int serverPort
-    ) {
-        log.info("Connecting toi Billing Service GRPC service at {}:{}", serverAddress, serverPort);
+            @Value("${billing.service.grpc.port:9001}") int serverPort) {
+
+        log.info("Connecting to Billing Service GRPC service at {}:{}", serverAddress, serverPort);
 
         ManagedChannel channel = ManagedChannelBuilder.forAddress(serverAddress, serverPort).usePlaintext().build();
 
